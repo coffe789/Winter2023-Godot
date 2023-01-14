@@ -89,7 +89,7 @@
 3/shapes = [  ]
 3/z_index = 0
 
-[node name="Hazards" type="TileMap"]
+[node name="Objects" type="TileMap"]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 8, 8 )
 cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
