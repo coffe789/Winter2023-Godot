@@ -19,7 +19,11 @@ func is_pos_valid(pos : Vector2) -> bool:
 	return pos.x >= 0 and pos.x < grid_size.x and pos.y >= 0 and pos.y < grid_size.y
 
 func send_to_tile(tile_pos, object):
-	pass
+	var pos = get_grid_pos(object)
+	if is_pos_valid(tile_pos):
+		grid[pos.x][pos.y].erase(object)
+		grid[tile_pos.x][tile_pos.y].append(object)
+		object.position = tile_pos * TILE_SIZE
 
 func send_in_direction(direction, object):
 	var pos = get_grid_pos(object)

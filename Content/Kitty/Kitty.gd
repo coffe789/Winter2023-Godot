@@ -17,12 +17,13 @@ func do_turn():
 func add_history():
 	var level = Globals.get_level()
 	var grid_pos = level.get_grid_pos(self)
-	var h = TurnHistory.new([funcref(level, "send_to_tile")], [grid_pos, self], self)
+	var h = TurnHistory.new([funcref(level, "send_to_tile")], [[grid_pos, self]], self)
 	history.append(h)
 
 func undo_history():
-	var h = history.pop_back()
-	h.go_back()
+	if history:
+		var h = history.pop_back()
+		h.go_back()
 
 func _process(_delta):
 	var level = Globals.get_level()

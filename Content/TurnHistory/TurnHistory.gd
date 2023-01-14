@@ -13,8 +13,10 @@ func _init(func_list, param_list_list, _target):
 		var a = Action.new()
 		a.function = func_list[i]
 		a.params = param_list_list[i]
+		action_list.append(a)
 	target = _target
 
 func go_back():
 	for a in action_list:
 		a.function.call_funcv(a.params)
+		prints(a.function, a.params)

@@ -6,6 +6,11 @@
 
 [node name="LevelManager" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.2, 0.2 )
+
 [node name="Level1" type="Node2D" parent="." groups=["level"]]
 script = ExtResource( 1 )
 
