@@ -6,8 +6,7 @@ var history = []
 func _ready():
 	var level = Globals.get_level()
 	level.init_object(self)
-	var dbox = DialogueBox.new("helo I aam kity")
-	add_child(dbox)
+	add_to_group("kitty")
 
 func do_turn():
 	Globals.emit_signal("move_everything")
