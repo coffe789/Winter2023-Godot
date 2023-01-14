@@ -4,7 +4,7 @@ class_name Level
 export(Vector2) var grid_size = Vector2(15,15)
 var grid : Array
 
-const TILE_SIZE = 8
+const TILE_SIZE = 16
 
 func init_object(object):
 	if int(object.position.x) % TILE_SIZE != 0 or int(object.position.y) % TILE_SIZE != 0:
@@ -51,7 +51,14 @@ func resolve_collisions():
 	for i in grid_size.x:
 		for j in grid_size.y:
 			var tile = grid[i][j]
-			if "[eee]" in tile:
-				print("kitty in tile")
+			
+			var is_kitty = false
+			var is_barrier = false
+			
 			for object in tile:
-				prints(object,i,j)
+				if object.is_in_group("barrier"): is_barrier = true
+				if object.is_in_group("kitty"): is_kitty = true
+			
+			if is_barrier:
+				for object in tile:
+					object.undo_history()

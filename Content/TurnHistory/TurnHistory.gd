@@ -19,4 +19,3 @@ func _init(func_list, param_list_list, _target):
 func go_back():
 	for a in action_list:
 		a.function.call_funcv(a.params)
-		prints(a.function, a.params)
