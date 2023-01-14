@@ -10,12 +10,14 @@ func _ready():
 		match get_cellv(p):
 			0: # ice
 				spawn_at_tile(ice,    p)
-			1: # water
-				spawn_at_tile(water,  p)
+			1: #
+				pass
 			2: # spikes
 				spawn_at_tile(spikes, p)
 			3: # wall
 				spawn_at_tile(wall,   p)
+			4: # water
+				spawn_at_tile(water,  p)
 			# etcetera
 
 func spawn_at_tile(object, tilepos):
