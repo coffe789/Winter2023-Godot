@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/flag.png-41334764bf82b67b493324f27cf24c36.stex"
+path="res://.import/kittybig.png-6104f565d9c33448e5a83dfb91210ae6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://critter/flag.png"
-dest_files=[ "res://.import/flag.png-41334764bf82b67b493324f27cf24c36.stex" ]
+source_file="res://Content/Kitty/kittybig.png"
+dest_files=[ "res://.import/kittybig.png-6104f565d9c33448e5a83dfb91210ae6.stex" ]
 
 [params]
 
