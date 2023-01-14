@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Sprite",
 "class": "DialogueBox",
 "language": "GDScript",
-"path": "res://Content/UI/Speech Bubble.gd"
+"path": "res://Content/UI/DialogueBox.gd"
 }, {
 "base": "Node2D",
 "class": "Kitty",
