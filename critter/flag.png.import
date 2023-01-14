@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tiles.png-63849041a663be4dd784146fe1c8a9dd.stex"
+path="res://.import/flag.png-41334764bf82b67b493324f27cf24c36.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://critter/tiles.png"
-dest_files=[ "res://.import/tiles.png-63849041a663be4dd784146fe1c8a9dd.stex" ]
+source_file="res://critter/flag.png"
+dest_files=[ "res://.import/flag.png-41334764bf82b67b493324f27cf24c36.stex" ]
 
 [params]
 
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0
