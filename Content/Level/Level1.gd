@@ -4,7 +4,7 @@ class_name Level
 export(Vector2) var grid_size = Vector2(15,15)
 var grid : Array
 
-const TILE_SIZE = 16
+const TILE_SIZE = 8
 
 func init_object(object):
 	if int(object.position.x) % TILE_SIZE != 0 or int(object.position.y) % TILE_SIZE != 0:

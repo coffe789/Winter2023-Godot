@@ -3,7 +3,7 @@ extends TileMap
 var ice    #= preload("")
 var water  #= preload("")
 var spikes #= preload("")
-var wall   #= preload("")
+var wall   = preload("res://Content/Barrier/Barrier.tscn")
 
 func _ready():
 	for p in get_used_cells():
