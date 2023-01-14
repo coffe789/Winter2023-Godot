@@ -54,11 +54,16 @@ func resolve_collisions():
 			
 			var is_kitty = false
 			var is_barrier = false
+			var is_flag = false
 			
 			for object in tile:
 				if object.is_in_group("barrier"): is_barrier = true
 				if object.is_in_group("kitty"): is_kitty = true
+				if object.is_in_group("flag"): is_flag = true
 			
 			if is_barrier:
 				for object in tile:
 					object.undo_history()
+			
+			if is_flag and is_kitty:
+				print("win")
