@@ -8,10 +8,31 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Kitty",
+"language": "GDScript",
+"path": "res://Content/Kitty/Kitty.gd"
+}, {
+"base": "Node2D",
+"class": "Level",
+"language": "GDScript",
+"path": "res://Content/Level/Level1.gd"
+} ]
+_global_script_class_icons={
+"Kitty": "",
+"Level": ""
+}
+
 [application]
 
 config/name="Winter2023-Godot"
+run/main_scene="res://Content/LevelManager.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://Content/Globals.tscn"
 
 [gui]
 
