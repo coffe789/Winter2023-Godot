@@ -19,5 +19,6 @@ func _ready():
 			# etcetera
 
 func spawn_at_tile(object, tilepos):
-	var o = object.instance(); o.position = tilepos * cell_size
-	add_child(o)
+	if object:
+		var o = object.instance(); o.position = tilepos * cell_size
+		add_child(o)
