@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Level",
 "language": "GDScript",
 "path": "res://Content/Level/Level1.gd"
+}, {
+"base": "Node",
+"class": "TurnHistory",
+"language": "GDScript",
+"path": "res://Content/TurnHistory/TurnHistory.gd"
 } ]
 _global_script_class_icons={
 "DialogueBox": "",
 "Kitty": "",
-"Level": ""
+"Level": "",
+"TurnHistory": ""
 }
 
 [application]
