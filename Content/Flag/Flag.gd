@@ -1,4 +1,5 @@
 extends Sprite
+class_name Flag
 
 func _ready():
 	var level = Globals.get_level()
@@ -18,17 +19,4 @@ func undo_history():
 		var h = history.pop_back()
 		h.go_back()
 
-func _process(_delta):
-	var level = Globals.get_level()
-	if Input.is_action_just_pressed("ui_right"):
-		add_history()
-		level.send_in_direction(Vector2.RIGHT, self)
-	elif Input.is_action_just_pressed("ui_up"):
-		add_history()
-		level.send_in_direction(Vector2.UP, self)
-	elif Input.is_action_just_pressed("ui_left"):
-		add_history()
-		level.send_in_direction(Vector2.LEFT, self)
-	elif Input.is_action_just_pressed("ui_down"):
-		add_history()
-		level.send_in_direction(Vector2.DOWN, self)
+

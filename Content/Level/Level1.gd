@@ -32,6 +32,7 @@ func send_in_direction(direction, object):
 		pos += direction
 		grid[pos.x][pos.y].append(object)
 		object.position = pos * TILE_SIZE
+	else: print(pos, object.name)
 
 func init_grid():
 	grid = []

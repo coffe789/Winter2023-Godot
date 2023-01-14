@@ -10,6 +10,7 @@ func _ready():
 
 func do_turn():
 	Globals.emit_signal("move_everything")
+	
 	var level = Globals.get_level()
 	level.resolve_collisions()
 
@@ -26,20 +27,29 @@ func undo_history():
 
 func _process(_delta):
 	var level = Globals.get_level()
+	var flag = Globals.get_flag()
 	if Input.is_action_just_pressed("ui_right"):
+		flag.add_history()
 		add_history()
+		level.send_in_direction(Vector2.RIGHT, flag)
 		level.send_in_direction(Vector2.RIGHT, self)
 		do_turn()
 	elif Input.is_action_just_pressed("ui_up"):
+		flag.add_history()
 		add_history()
+		level.send_in_direction(Vector2.UP, flag)
 		level.send_in_direction(Vector2.UP, self)
 		do_turn()
 	elif Input.is_action_just_pressed("ui_left"):
+		flag.add_history()
 		add_history()
+		level.send_in_direction(Vector2.LEFT, flag)
 		level.send_in_direction(Vector2.LEFT, self)
 		do_turn()
 	elif Input.is_action_just_pressed("ui_down"):
+		flag.add_history()
 		add_history()
+		level.send_in_direction(Vector2.DOWN, flag)
 		level.send_in_direction(Vector2.DOWN, self)
 		do_turn()
 	if Input.is_action_just_pressed("ui_cancel"):

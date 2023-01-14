@@ -90,6 +90,7 @@
 3/z_index = 10
 
 [node name="Objects" type="TileMap"]
+position = Vector2( -4, -4 )
 tile_set = SubResource( 1 )
 cell_size = Vector2( 8, 8 )
 cell_custom_transform = Transform2D( 8, 0, 0, 8, 0, 0 )
