@@ -32,7 +32,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "Level",
 "language": "GDScript",
-"path": "res://Content/Level/Level1.gd"
+"path": "res://Content/Level/Level.gd"
 }, {
 "base": "Node2D",
 "class": "Spike",

@@ -1,0 +1,170 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Content/TitleScreen/icon_anim.png" type="Texture" id=1]
+[ext_resource path="res://Content/TitleScreen/TitleScreen.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Content/UI/m5x7.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 4 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "play_logo"
+length = 3.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.6, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.6, 3.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Logo" type="Sprite" parent="."]
+position = Vector2( -10, 0 )
+z_index = 100
+texture = ExtResource( 1 )
+centered = false
+hframes = 6
+
+[node name="Start" type="TextureButton" parent="."]
+margin_left = 304.0
+margin_top = 112.0
+margin_right = 368.0
+margin_bottom = 176.0
+texture_normal = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Start"]
+margin_left = -16.0
+margin_top = -40.0
+margin_right = 104.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+text = "Play
+"
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/play_logo = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.45, 0.45 )
+smoothing_enabled = true
+
+[node name="Credits" type="TextureButton" parent="."]
+margin_left = 264.0
+margin_top = 176.0
+margin_right = 304.0
+margin_bottom = 216.0
+texture_normal = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
+margin_left = -24.0
+margin_top = -8.0
+margin_right = 96.0
+margin_bottom = 32.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+text = "Credits
+"
+scroll_active = false
+
+[node name="Quit" type="TextureButton" parent="."]
+margin_left = 232.0
+margin_top = 240.0
+margin_right = 272.0
+margin_bottom = 280.0
+texture_normal = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Quit"]
+margin_left = -16.0
+margin_top = -40.0
+margin_right = 104.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+text = "Quit"
+scroll_active = false
+
+[node name="CreditsReturn" type="TextureButton" parent="."]
+margin_left = 864.0
+margin_top = 192.0
+margin_right = 928.0
+margin_bottom = 256.0
+texture_normal = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsReturn"]
+margin_left = -16.0
+margin_top = -40.0
+margin_right = 104.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 3 )
+text = "Return"
+scroll_active = false
+
+[node name="CreditsText" type="RichTextLabel" parent="."]
+margin_left = 568.0
+margin_top = 56.0
+margin_right = 824.0
+margin_bottom = 248.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "By Verti & COFFE
+
+lalala
+
+credits credits credits"
+scroll_active = false
+
+[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="CreditsReturn" to="." method="_on_CreditsReturn_pressed"]

@@ -80,9 +80,9 @@ func resolve_collisions():
 				for obj in tile.obj:
 					if obj.is_in_group("kitty") or obj.is_in_group("flag"):
 						obj.die("spike")
-			if tile.has_group("water") and (tile.has_group("kitty") or tile.has_group("flag")):
+			if tile.has_group("water") and (tile.has_group("kitty")):
 				for obj in tile.obj:
-					if obj.is_in_group("kitty") or obj.is_in_group("flag"):
+					if obj.is_in_group("kitty"):
 						obj.die("water")
 			if tile.has_group("flag") and tile.has_group("kitty"):
 				tile.get_first_in_group("kitty").disabled_input = true

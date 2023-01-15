@@ -2,11 +2,13 @@ extends Node2D
 
 var levels = [
 	# 0th entry is for when there's no current level
-	false
+	false,
 	# level preloads go here
-	,preload("res://Content/Level/Level1.tscn")
-	,preload("res://Content/Level/Level2.tscn")
-	,
+	preload("res://Content/TitleScreen/TitleScreen.tscn"),
+	preload("res://Content/Level/Level1.tscn"),
+	preload("res://Content/Level/Level2.tscn"),
+	
+	
 ]
 
 var levelwinmenu = preload("res://Content/Menu/LevelWin.tscn")
@@ -19,6 +21,11 @@ func change_level(level_id : int) -> void:
 		var w = levelwinmenu.instance(); add_child(w)
 		yield(w, "cont")
 		w.queue_free(); current_level.queue_free()
+	var l = levels[level_id].instance(); add_child(l)
+	current_level = l
+	current_level_id = level_id
+
+func exit_title_screen(level_id : int) -> void:
 	var l = levels[level_id].instance(); add_child(l)
 	current_level = l
 	current_level_id = level_id
