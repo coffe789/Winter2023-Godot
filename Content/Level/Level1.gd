@@ -3,6 +3,7 @@ class_name Level
 
 export(Vector2) var grid_size = Vector2(15,15)
 var grid : Array
+onready var LevelManager = get_parent()
 
 const TILE_SIZE = 8
 
@@ -80,5 +81,5 @@ func resolve_collisions():
 					if obj.is_in_group("kitty") or obj.is_in_group("flag"):
 						obj.die()
 			if tile.has_group("flag") and tile.has_group("kitty"):
-				print("win")
+				LevelManager.change_level(LevelManager.current_level_id+1)
 
