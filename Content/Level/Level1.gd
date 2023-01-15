@@ -57,7 +57,6 @@ func send_in_direction(direction, object):
 		pos += direction
 		grid[pos.x][pos.y].append(object)
 		object.position = pos * TILE_SIZE
-	else: print(pos, object.name)
 
 func init_grid():
 	grid = []
@@ -81,6 +80,10 @@ func resolve_collisions():
 				for obj in tile.obj:
 					if obj.is_in_group("kitty") or obj.is_in_group("flag"):
 						obj.die("spike")
+			if tile.has_group("water") and (tile.has_group("kitty") or tile.has_group("flag")):
+				for obj in tile.obj:
+					if obj.is_in_group("kitty") or obj.is_in_group("flag"):
+						obj.die("water")
 			if tile.has_group("flag") and tile.has_group("kitty"):
 				tile.get_first_in_group("kitty").disabled_input = true
 				LevelManager.change_level(LevelManager.current_level_id+1)

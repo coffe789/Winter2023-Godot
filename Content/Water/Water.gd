@@ -1,16 +1,12 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var level = Globals.get_level()
+	level.init_object(self)
+	add_to_group("water")
 
+func undo_history():
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func undo_history_without_deletion():
+	pass
