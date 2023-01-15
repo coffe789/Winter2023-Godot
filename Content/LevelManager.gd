@@ -8,6 +8,7 @@ var levels = [
 	preload("res://Content/Level/Level1.tscn"),
 	preload("res://Content/Level/LevelWaterIntro.tscn"),
 	preload("res://Content/Level/LevelWaterIntro2.tscn"),
+	preload("res://Content/Level/LevelNearby.tscn"),
 	preload("res://Content/Level/LevelWaterTrap.tscn"),
 ]
 
