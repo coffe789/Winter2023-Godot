@@ -22,3 +22,6 @@ position = Vector2( 48, 16 )
 
 [node name="Kitty" parent="." index="4"]
 position = Vector2( 48, 72 )
+
+[node name="Camera2D" parent="." index="5"]
+position = Vector2( 40, 40 )

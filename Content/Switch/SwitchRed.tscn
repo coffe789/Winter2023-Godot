@@ -3,6 +3,8 @@
 [ext_resource path="res://Content/Switch/Switch.gd" type="Script" id=1]
 [ext_resource path="res://Content/Switch/switch_red.png" type="Texture" id=2]
 
-[node name="Switch" type="Sprite"]
+[node name="SwitchRed" type="Sprite"]
 texture = ExtResource( 2 )
+centered = false
+hframes = 2
 script = ExtResource( 1 )

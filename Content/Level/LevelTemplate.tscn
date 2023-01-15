@@ -19,14 +19,13 @@ tile_data = PoolIntArray( 0, 7, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 
 
 [node name="Flag" parent="." instance=ExtResource( 2 )]
 position = Vector2( 32, 32 )
+z_index = 1
 
 [node name="Kitty" parent="." instance=ExtResource( 5 )]
 position = Vector2( 32, 56 )
+z_index = 1
 
-[node name="Node" type="Node" parent="."]
-
-[node name="Camera2D" type="Camera2D" parent="Node"]
-position = Vector2( -4, -4 )
-anchor_mode = 0
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 56, 56 )
 current = true
 zoom = Vector2( 0.2, 0.2 )

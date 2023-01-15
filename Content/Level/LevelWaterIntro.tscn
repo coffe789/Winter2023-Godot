@@ -19,3 +19,7 @@ position = Vector2( 56, 56 )
 
 [node name="Kitty" parent="." index="4"]
 position = Vector2( 8, 56 )
+
+[node name="Camera2D" parent="." index="5"]
+position = Vector2( 32, 28 )
+zoom = Vector2( 0.15, 0.15 )

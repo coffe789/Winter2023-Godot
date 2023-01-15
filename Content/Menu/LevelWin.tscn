@@ -8,11 +8,19 @@ script = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
+scale = Vector2( 3, 3 )
+transform = Transform2D( 3, 0, 0, 3, 0, 0 )
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 341.0
+margin_bottom = 192.0
+color = Color( 0, 0, 0, 0.2 )
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = -78.0
-margin_right = 78.0
-margin_bottom = 17.0
+margin_left = 82.6667
+margin_top = 85.3333
+margin_right = 238.667
+margin_bottom = 102.333
 theme = ExtResource( 3 )
 text = "NEXT LEVEL!"
 

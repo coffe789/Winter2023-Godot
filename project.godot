@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Winter2023-Godot"
-run/main_scene="res://Content/LevelManager.tscn"
+run/main_scene="res://Content/WorldRoot.tscn"
 config/icon="res://icon.png"
 
 [autoload]

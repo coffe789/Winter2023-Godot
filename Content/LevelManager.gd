@@ -19,7 +19,7 @@ var current_level : Node
 
 func change_level(level_id : int) -> void:
 	if current_level:
-		var w = levelwinmenu.instance(); add_child(w)
+		var w = levelwinmenu.instance(); get_parent().add_child(w)
 		yield(w, "cont")
 		w.queue_free(); current_level.queue_free()
 	var l = levels[level_id].instance(); add_child(l)
@@ -27,6 +27,8 @@ func change_level(level_id : int) -> void:
 	current_level_id = level_id
 
 func exit_title_screen(level_id : int) -> void:
+	if current_level:
+		current_level.queue_free()
 	var l = levels[level_id].instance(); add_child(l)
 	current_level = l
 	current_level_id = level_id
