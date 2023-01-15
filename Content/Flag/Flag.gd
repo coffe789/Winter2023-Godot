@@ -5,6 +5,7 @@ func _ready():
 	var level = Globals.get_level()
 	level.init_object(self)
 	add_to_group("flag")
+	Globals.connect("go_back", self, "undo_history")
 
 var history = []
 

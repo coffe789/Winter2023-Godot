@@ -8,3 +8,6 @@ func _ready():
 
 func undo_history():
 	pass
+
+func undo_history_without_deletion():
+	pass

@@ -7,6 +7,7 @@ func _ready():
 	var level = Globals.get_level()
 	level.init_object(self)
 	add_to_group("kitty")
+	Globals.connect("go_back", self, "undo_history")
 
 func do_turn():
 	Globals.emit_signal("move_everything")
@@ -24,6 +25,11 @@ func undo_history():
 	if history:
 		var h = history.pop_back()
 		h.go_back()
+
+func undo_history_without_deletion():
+	if history:
+		var h = history
+		h[history.size() - 1].go_back()
 
 func _process(_delta):
 	var level = Globals.get_level()
@@ -52,5 +58,3 @@ func _process(_delta):
 		level.send_in_direction(Vector2.DOWN, flag)
 		level.send_in_direction(Vector2.DOWN, self)
 		do_turn()
-	if Input.is_action_just_pressed("ui_cancel"):
-		undo_history()

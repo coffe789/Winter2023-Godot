@@ -64,7 +64,7 @@ func resolve_collisions():
 			
 			if is_barrier:
 				for object in tile:
-					object.undo_history()
+					object.undo_history_without_deletion()
 			
 			if is_flag and is_kitty:
 				print("win")
