@@ -2,7 +2,6 @@ extends Node2D
 class_name Kitty
 
 var history = []
-var disabled_input = false
 
 func _ready():
 	var level = Globals.get_level()
@@ -32,20 +31,24 @@ func undo_history_without_deletion():
 		var h = history
 		h[history.size() - 1].go_back()
 
-func die():
+func die(death_type : String):
 	remove_from_group("kitty")
 	add_to_group("dead_kitty")
-
+	
 	var last_history = history[history.size()-1]
 	last_history.add_action(funcref(self, "revive"),[])
-
+	
+	match death_type:
+		"water": $Splash.emitting = true
+		"spike": $Splash.emitting = true
+	
 	visible = false
 
 
 func revive():
 	remove_from_group("dead_kitty")
 	add_to_group("kitty")
-
+	
 	visible = true
 
 
@@ -53,7 +56,7 @@ func _process(_delta):
 	var level = Globals.get_level()
 	var flag = Globals.get_flag()
 
-	if not is_in_group("dead_kitty") and not flag.is_in_group("dead_flag") and not disabled_input:
+	if not is_in_group("dead_kitty") and not flag.is_in_group("dead_flag"):
 		if Input.is_action_just_pressed("ui_right"):
 			flag.add_history()
 			add_history()

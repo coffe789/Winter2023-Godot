@@ -27,13 +27,16 @@ func undo_history_without_deletion():
 		h[history.size() - 1].go_back()
 
 
-func die():
+func die(death_type : String):
 	remove_from_group("flag")
 	add_to_group("dead_flag")
 
 	var last_history = history[history.size()-1]
 	last_history.add_action(funcref(self, "revive"),[])
-
+	
+	match death_type:
+		"spike": pass
+	
 	visible = false
 
 

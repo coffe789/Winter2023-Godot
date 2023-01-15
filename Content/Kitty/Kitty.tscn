@@ -12,3 +12,7 @@ texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Splash" type="Particles2D" parent="."]
+emitting = false
+one_shot = true

@@ -80,7 +80,7 @@ func resolve_collisions():
 			if tile.has_group("spike") and (tile.has_group("kitty") or tile.has_group("flag")):
 				for obj in tile.obj:
 					if obj.is_in_group("kitty") or obj.is_in_group("flag"):
-						obj.die()
+						obj.die("spike")
 			if tile.has_group("flag") and tile.has_group("kitty"):
 				tile.get_first_in_group("kitty").disabled_input = true
 				LevelManager.change_level(LevelManager.current_level_id+1)
