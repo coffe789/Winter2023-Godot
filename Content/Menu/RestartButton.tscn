@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Content/UI/kittytheme.tres" type="Theme" id=1]
+[ext_resource path="res://Content/Menu/RestartButton.gd" type="Script" id=2]
+
+[node name="RestartButton" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+margin_left = -78.0
+margin_right = 78.0
+margin_bottom = 17.0
+theme = ExtResource( 1 )
+text = "RESTART"
+
+[connection signal="button_up" from="CanvasLayer/Button" to="." method="_on_Button_button_up"]

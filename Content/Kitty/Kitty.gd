@@ -36,6 +36,8 @@ func die(death_type : String):
 	remove_from_group("kitty")
 	add_to_group("dead_kitty")
 	
+	Globals.get_level().death_screen()
+	
 	var last_history = history[history.size()-1]
 	last_history.add_action(funcref(self, "revive"),[])
 	

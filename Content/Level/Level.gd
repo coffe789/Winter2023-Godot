@@ -109,3 +109,7 @@ func resolve_collisions():
 				set_is_red_state(true)
 			if tile.has_group("blue_switch") and (tile.has_group("kitty") or (tile.has_group("flag"))):
 				set_is_red_state(false)
+
+
+func death_screen():
+	pass

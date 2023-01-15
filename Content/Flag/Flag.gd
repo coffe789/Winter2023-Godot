@@ -30,7 +30,9 @@ func undo_history_without_deletion():
 func die(death_type : String):
 	remove_from_group("flag")
 	add_to_group("dead_flag")
-
+	
+	Globals.get_level().death_screen()
+	
 	var last_history = history[history.size()-1]
 	last_history.add_action(funcref(self, "revive"),[])
 	
