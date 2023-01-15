@@ -22,6 +22,12 @@ class Tile:
 			if o.is_in_group(group):
 				return true
 		return false
+	func get_first_in_group(group : String) -> Node:
+		for o in obj:
+			if o.is_in_group(group):
+				return o
+		push_error("requested group: " + group + " from a tile when it doesn't exist")
+		return null
 	
 func init_object(object):
 	if int(object.position.x) % TILE_SIZE != 0 or int(object.position.y) % TILE_SIZE != 0:
@@ -76,5 +82,6 @@ func resolve_collisions():
 					if obj.is_in_group("kitty") or obj.is_in_group("flag"):
 						obj.die()
 			if tile.has_group("flag") and tile.has_group("kitty"):
+				tile.get_first_in_group("kitty").disabled_input = true
 				LevelManager.change_level(LevelManager.current_level_id+1)
 
