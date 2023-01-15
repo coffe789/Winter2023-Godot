@@ -7,6 +7,17 @@ onready var LevelManager = get_parent()
 
 const TILE_SIZE = 8
 
+var is_state_red = true setget set_is_red_state# Switch state
+func set_is_red_state(is_red):
+	for i in grid_size.x:
+		for j in grid_size.y:
+			var tile = grid[i][j]
+			if tile.has_group("red_switch"):
+				tile.get_first_in_group("red_switch").pressed = is_red
+			if tile.has_group("blue_switch"):
+				tile.get_first_in_group("blue_switch").pressed = !is_red
+
+
 class Tile:
 	var obj := []
 
@@ -87,4 +98,7 @@ func resolve_collisions():
 			if tile.has_group("flag") and tile.has_group("kitty"):
 				tile.get_first_in_group("kitty").disabled_input = true
 				LevelManager.change_level(LevelManager.current_level_id+1)
-
+			if tile.has_group("red_switch") and tile.has_group("kitty"):
+				is_state_red = true
+			if tile.has_group("blue_switch") and tile.has_group("kitty"):
+				is_state_red = true
