@@ -41,6 +41,7 @@ func send_to_tile(tile_pos, object):
 		grid[pos.x][pos.y].erase(object)
 		grid[tile_pos.x][tile_pos.y].append(object)
 		object.position = tile_pos * TILE_SIZE
+		if object is Flag: print(tile_pos)
 
 func send_in_direction(direction, object):
 	var pos = get_grid_pos(object)
@@ -72,10 +73,11 @@ func resolve_collisions():
 			
 			if tile.has_group("barrier"):
 				for obj in range(tile.size() -1, -1, -1):
-					if tile.has_group("kitty"):
-						print(tile.obj[obj])
 					tile.obj[obj].undo_history_without_deletion()
-			
+
+	for i in grid_size.x:
+		for j in grid_size.y:
+			var tile = grid[i][j]
 			if tile.has_group("spike") and (tile.has_group("kitty") or tile.has_group("flag")):
 				for obj in tile.obj:
 					if obj.is_in_group("kitty") or obj.is_in_group("flag"):
