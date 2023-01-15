@@ -6,9 +6,9 @@ var levels = [
 	# level preloads go here
 	preload("res://Content/TitleScreen/TitleScreen.tscn"),
 	preload("res://Content/Level/Level1.tscn"),
+	preload("res://Content/Level/LevelWaterIntro.tscn"),
+	preload("res://Content/Level/LevelWaterIntro2.tscn"),
 	preload("res://Content/Level/LevelWaterTrap.tscn"),
-	
-	
 ]
 
 var levelwinmenu = preload("res://Content/Menu/LevelWin.tscn")
