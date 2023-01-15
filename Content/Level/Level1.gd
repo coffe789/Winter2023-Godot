@@ -22,6 +22,12 @@ class Tile:
 			if o.is_in_group(group):
 				return true
 		return false
+	func get_first_in_group(group : String) -> Node:
+		for o in obj:
+			if o.is_in_group(group):
+				return o
+		push_error("requested group: " + group + " from a tile when it doesn't exist")
+		return null
 	
 func init_object(object):
 	if int(object.position.x) % TILE_SIZE != 0 or int(object.position.y) % TILE_SIZE != 0:
@@ -33,7 +39,9 @@ func get_grid_pos(object) -> Vector2:
 	return Vector2(object.position.x/TILE_SIZE, object.position.y/TILE_SIZE)
 
 func is_pos_valid(pos : Vector2) -> bool:
-	return pos.x >= 0 and pos.x < grid_size.x and pos.y >= 0 and pos.y < grid_size.y
+	var in_bounds = pos.x >= 0 and pos.x < grid_size.x and pos.y >= 0 and pos.y < grid_size.y
+	var in_wall = grid[pos.x][pos.y].has_group("barrier")
+	return in_bounds and not in_wall
 
 func send_to_tile(tile_pos, object):
 	var pos = get_grid_pos(object)
@@ -41,7 +49,6 @@ func send_to_tile(tile_pos, object):
 		grid[pos.x][pos.y].erase(object)
 		grid[tile_pos.x][tile_pos.y].append(object)
 		object.position = tile_pos * TILE_SIZE
-		if object is Flag: print(tile_pos)
 
 func send_in_direction(direction, object):
 	var pos = get_grid_pos(object)
@@ -70,18 +77,11 @@ func resolve_collisions():
 	for i in grid_size.x:
 		for j in grid_size.y:
 			var tile = grid[i][j]
-			
-			if tile.has_group("barrier"):
-				for obj in range(tile.size() -1, -1, -1):
-					tile.obj[obj].undo_history_without_deletion()
-
-	for i in grid_size.x:
-		for j in grid_size.y:
-			var tile = grid[i][j]
 			if tile.has_group("spike") and (tile.has_group("kitty") or tile.has_group("flag")):
 				for obj in tile.obj:
 					if obj.is_in_group("kitty") or obj.is_in_group("flag"):
 						obj.die()
 			if tile.has_group("flag") and tile.has_group("kitty"):
+				tile.get_first_in_group("kitty").disabled_input = true
 				LevelManager.change_level(LevelManager.current_level_id+1)
 
