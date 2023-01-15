@@ -6,14 +6,11 @@
 [node name="RestartButton" type="Node2D"]
 script = ExtResource( 2 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 128
-
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Button" type="Button" parent="."]
 margin_left = -78.0
 margin_right = 78.0
 margin_bottom = 17.0
 theme = ExtResource( 1 )
 text = "RESTART"
 
-[connection signal="button_up" from="CanvasLayer/Button" to="." method="_on_Button_button_up"]
+[connection signal="button_up" from="Button" to="." method="_on_Button_button_up"]
