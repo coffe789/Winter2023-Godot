@@ -19,3 +19,9 @@ func _init(func_list, param_list_list, _target):
 func go_back():
 	for a in action_list:
 		a.function.call_funcv(a.params)
+
+func add_action(function : FuncRef, params : Array):
+	var a = Action.new()
+	a.function = function
+	a.params = params
+	action_list.append(a)

@@ -25,3 +25,20 @@ func undo_history_without_deletion():
 	if history:
 		var h = history
 		h[history.size() - 1].go_back()
+
+
+func die():
+	remove_from_group("flag")
+	add_to_group("dead_flag")
+
+	var last_history = history[history.size()-1]
+	last_history.add_action(funcref(self, "revive"),[])
+
+	visible = false
+
+
+func revive():
+	remove_from_group("dead_flag")
+	add_to_group("flag")
+
+	visible = true

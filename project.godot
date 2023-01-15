@@ -34,6 +34,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Content/Level/Level1.gd"
 }, {
+"base": "Node2D",
+"class": "Spike",
+"language": "GDScript",
+"path": "res://Content/Spike/Spike.gd"
+}, {
 "base": "Node",
 "class": "TurnHistory",
 "language": "GDScript",
@@ -45,6 +50,7 @@ _global_script_class_icons={
 "Flag": "",
 "Kitty": "",
 "Level": "",
+"Spike": "",
 "TurnHistory": ""
 }
 

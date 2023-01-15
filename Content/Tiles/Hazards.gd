@@ -2,7 +2,7 @@ extends TileMap
 
 var ice    #= preload("")
 var water  #= preload("")
-var spikes #= preload("")
+var spikes = preload("res://Content/Spike/Spike.tscn")
 var wall   = preload("res://Content/Barrier/Barrier.tscn")
 
 func _ready():

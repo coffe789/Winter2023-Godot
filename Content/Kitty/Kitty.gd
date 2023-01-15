@@ -31,30 +31,49 @@ func undo_history_without_deletion():
 		var h = history
 		h[history.size() - 1].go_back()
 
+func die():
+	remove_from_group("kitty")
+	add_to_group("dead_kitty")
+
+	var last_history = history[history.size()-1]
+	last_history.add_action(funcref(self, "revive"),[])
+
+	visible = false
+
+
+func revive():
+	remove_from_group("dead_kitty")
+	add_to_group("kitty")
+
+	visible = true
+
+
 func _process(_delta):
 	var level = Globals.get_level()
 	var flag = Globals.get_flag()
-	if Input.is_action_just_pressed("ui_right"):
-		flag.add_history()
-		add_history()
-		level.send_in_direction(Vector2.RIGHT, flag)
-		level.send_in_direction(Vector2.RIGHT, self)
-		do_turn()
-	elif Input.is_action_just_pressed("ui_up"):
-		flag.add_history()
-		add_history()
-		level.send_in_direction(Vector2.UP, flag)
-		level.send_in_direction(Vector2.UP, self)
-		do_turn()
-	elif Input.is_action_just_pressed("ui_left"):
-		flag.add_history()
-		add_history()
-		level.send_in_direction(Vector2.LEFT, flag)
-		level.send_in_direction(Vector2.LEFT, self)
-		do_turn()
-	elif Input.is_action_just_pressed("ui_down"):
-		flag.add_history()
-		add_history()
-		level.send_in_direction(Vector2.DOWN, flag)
-		level.send_in_direction(Vector2.DOWN, self)
-		do_turn()
+
+	if not is_in_group("dead_kitty") and not flag.is_in_group("dead_flag"):
+		if Input.is_action_just_pressed("ui_right"):
+			flag.add_history()
+			add_history()
+			level.send_in_direction(Vector2.RIGHT, flag)
+			level.send_in_direction(Vector2.RIGHT, self)
+			do_turn()
+		elif Input.is_action_just_pressed("ui_up"):
+			flag.add_history()
+			add_history()
+			level.send_in_direction(Vector2.UP, flag)
+			level.send_in_direction(Vector2.UP, self)
+			do_turn()
+		elif Input.is_action_just_pressed("ui_left"):
+			flag.add_history()
+			add_history()
+			level.send_in_direction(Vector2.LEFT, flag)
+			level.send_in_direction(Vector2.LEFT, self)
+			do_turn()
+		elif Input.is_action_just_pressed("ui_down"):
+			flag.add_history()
+			add_history()
+			level.send_in_direction(Vector2.DOWN, flag)
+			level.send_in_direction(Vector2.DOWN, self)
+			do_turn()

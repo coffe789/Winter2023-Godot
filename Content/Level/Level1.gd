@@ -6,6 +6,22 @@ var grid : Array
 
 const TILE_SIZE = 8
 
+class Tile:
+	var obj := []
+
+	func append(_obj):
+		obj.append(_obj)
+	func erase(_obj):
+		obj.erase(_obj)
+	func size():
+		return obj.size()
+	
+	func has_group(group : String) -> bool:
+		for o in obj:
+			if o.is_in_group(group):
+				return true
+		return false
+	
 func init_object(object):
 	if int(object.position.x) % TILE_SIZE != 0 or int(object.position.y) % TILE_SIZE != 0:
 		push_error(object.name + " is not aligned to the grid")
@@ -40,7 +56,7 @@ func init_grid():
 		grid.append([])
 	for i in grid:
 		for j in grid_size.y:
-			i.append([])
+			i.append(Tile.new())
 
 func _init():
 	init_grid()
@@ -53,20 +69,16 @@ func resolve_collisions():
 		for j in grid_size.y:
 			var tile = grid[i][j]
 			
-			var is_kitty = false
-			var is_barrier = false
-			var is_flag = false
-			
-			for object in tile:
-				if object.is_in_group("barrier"): is_barrier = true
-				if object.is_in_group("kitty"): is_kitty = true
-				if object.is_in_group("flag"): is_flag = true
-			
-			if is_barrier:
+			if tile.has_group("barrier"):
 				for obj in range(tile.size() -1, -1, -1):
-					if is_kitty:
-						print(tile[obj])
-					tile[obj].undo_history_without_deletion()
+					if tile.has_group("kitty"):
+						print(tile.obj[obj])
+					tile.obj[obj].undo_history_without_deletion()
 			
-			if is_flag and is_kitty:
+			if tile.has_group("spike") and (tile.has_group("kitty") or tile.has_group("flag")):
+				for obj in tile.obj:
+					if obj.is_in_group("kitty") or obj.is_in_group("flag"):
+						obj.die()
+			if tile.has_group("flag") and tile.has_group("kitty"):
 				print("win")
+
