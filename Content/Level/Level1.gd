@@ -63,8 +63,10 @@ func resolve_collisions():
 				if object.is_in_group("flag"): is_flag = true
 			
 			if is_barrier:
-				for object in tile:
-					object.undo_history_without_deletion()
+				for obj in range(tile.size() -1, -1, -1):
+					if is_kitty:
+						print(tile[obj])
+					tile[obj].undo_history_without_deletion()
 			
 			if is_flag and is_kitty:
 				print("win")

@@ -21,3 +21,7 @@ func undo_history():
 		h.go_back()
 
 
+func undo_history_without_deletion():
+	if history:
+		var h = history
+		h[history.size() - 1].go_back()
