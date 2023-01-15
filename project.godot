@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Content/Flag/Flag.gd"
 }, {
-"base": "Node2D",
+"base": "Sprite",
 "class": "Kitty",
 "language": "GDScript",
 "path": "res://Content/Kitty/Kitty.gd"

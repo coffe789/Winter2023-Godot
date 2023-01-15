@@ -1,7 +1,8 @@
-extends Node2D
+extends Sprite
 class_name Kitty
 
 var history = []
+var disabled_input = false
 
 func _ready():
 	var level = Globals.get_level()
@@ -56,7 +57,7 @@ func _process(_delta):
 	var level = Globals.get_level()
 	var flag = Globals.get_flag()
 
-	if not is_in_group("dead_kitty") and not flag.is_in_group("dead_flag"):
+	if not is_in_group("dead_kitty") and not flag.is_in_group("dead_flag") and not disabled_input:
 		if Input.is_action_just_pressed("ui_right"):
 			flag.add_history()
 			add_history()
