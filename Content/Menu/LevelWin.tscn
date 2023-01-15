@@ -10,10 +10,9 @@ script = ExtResource( 2 )
 layer = 128
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 387.0
-margin_top = 324.0
-margin_right = 619.0
-margin_bottom = 445.0
+margin_left = -78.0
+margin_right = 78.0
+margin_bottom = 17.0
 theme = ExtResource( 3 )
 text = "NEXT LEVEL!"
 
