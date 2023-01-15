@@ -12,3 +12,4 @@ func _ready():
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_parent().get_parent().queue_free()
+		Globals.disabled_input = false
