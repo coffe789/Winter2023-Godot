@@ -64,6 +64,10 @@ config/icon="res://icon.png"
 
 Globals="*res://Content/Globals.tscn"
 
+[display]
+
+window/size/height=576
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
