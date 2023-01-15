@@ -110,6 +110,7 @@ func resolve_collisions():
 			if tile.has_group("blue_switch") and (tile.has_group("kitty") or (tile.has_group("flag"))):
 				set_is_red_state(false)
 
-
+onready var deathscreen = preload("res://Content/Menu/DeathScreen.tscn")
 func death_screen():
-	pass
+	var d = deathscreen.instance(); get_tree().get_root().add_child(d)
+
