@@ -7,7 +7,7 @@ var dcontainer = preload("res://Content/UI/DialogueContainer.tscn")
 var text_complete
 var lifetime
 
-func _init(text : String, _offset = Vector2(0,0), _scale := 0.3, life_time = 0.5) -> void:
+func _init(text : String, _offset = Vector2(0, -4), _scale := 0.3, life_time = 0.5) -> void:
 	var d = dcontainer.instance(); d.rect_position = Vector2(0,-9); add_child(d)
 	t = Timer.new(); t.connect("timeout", self, "append_new_letter")
 	t.wait_time = 0.05; add_child(t); t.one_shot = true

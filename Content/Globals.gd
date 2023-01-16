@@ -17,7 +17,7 @@ func get_flag() -> Flag:
 	else: return flag
 
 func _process(_delta) -> void:
-	if Input.is_action_just_pressed("ui_cancel") and not disable_undo:
+	if Input.is_action_just_pressed("undo") and not disable_undo:
 		emit_signal("go_back")
 		$undo.pitch_scale = rand_range(0.9,1.1)
 		$undo.play()
