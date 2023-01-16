@@ -15,7 +15,7 @@ func _init(text : String, _offset = Vector2(0, -4), _scale := 0.3, life_time = 0
 	
 	scale = Vector2(_scale,_scale)
 	position = _offset
-	z_index = 10
+	z_index = 100
 	lifetime = life_time
 
 func _ready():

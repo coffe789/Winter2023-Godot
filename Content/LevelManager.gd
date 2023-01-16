@@ -15,6 +15,11 @@ var levels = [
 	preload("res://Content/Level/LevelSwitchIntro2.tscn"),
 	preload("res://Content/Level/LevelSwitchyBoogo.tscn"),
 	preload("res://Content/Level/LevelSwitchySwitchy.tscn"),
+	preload("res://Content/Level/DragonIntro.tscn"),
+	preload("res://Content/Level/LevelCorridor.tscn"),
+	preload("res://Content/Level/LevelController.tscn"),
+	preload("res://Content/Level/LevelWindscreen.tscn"),
+	preload("res://Content/Level/LevelFinal.tscn"),
 ]
 
 var levelwinmenu = preload("res://Content/Menu/LevelWin.tscn")

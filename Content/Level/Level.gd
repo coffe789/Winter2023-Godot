@@ -70,6 +70,7 @@ func send_to_tile(tile_pos, object):
 		object.position = tile_pos * TILE_SIZE
 
 func send_in_direction(direction, object):
+	if object.is_in_group("final_flag"):return
 	var pos = get_grid_pos(object)
 	if is_pos_valid(pos+direction):
 		grid[pos.x][pos.y].erase(object)
@@ -91,10 +92,15 @@ func _init():
 func _ready():
 	resolve_collisions()
 
+var the_end = preload("res://Content/Menu/TheEnd.tscn")
 func resolve_collisions():
 	for i in grid_size.x:
 		for j in grid_size.y:
 			var tile = grid[i][j]
+			if tile.has_group("final_flag") and tile.has_group("kitty"):
+				var te = the_end.instance()
+				get_parent().add_child(te)
+				queue_free(); return
 			if tile.has_group("spike") and (tile.has_group("kitty") or tile.has_group("flag")):
 				for obj in tile.obj:
 					if obj.is_in_group("kitty") or obj.is_in_group("flag"):

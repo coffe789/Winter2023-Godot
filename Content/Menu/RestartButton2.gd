@@ -4,7 +4,8 @@ signal restart
 
 func _on_Button_button_up():
 	if not Globals.disable_walk: emit_signal("restart")
-#	get_parent().get_parent().queue_free()
+	if get_parent().get_parent() != get_tree().get_root():
+		get_parent().get_parent().queue_free()
 
 func _ready():
 	var lm = get_tree().get_root().get_node("WorldRoot/ViewportContainer/Viewport/LevelManager")

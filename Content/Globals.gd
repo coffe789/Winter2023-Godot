@@ -25,6 +25,9 @@ func _process(_delta) -> void:
 		emit_signal("go_back")
 		$undo.pitch_scale = rand_range(0.9,1.1)
 		$undo.play()
+	if Input.is_action_just_pressed("restart") and not disable_walk:
+		if get_level() and get_level().name != "TitleScreen" and get_level().name != "TheEnd":
+			get_level().get_parent().restart_level(null)
 
 func epic_spaghetti_code(gobackbutton) -> void:
 	emit_signal("go_back"); if gobackbutton: gobackbutton.queue_free()
