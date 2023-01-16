@@ -58,6 +58,13 @@ func die(death_type : String):
 				0: say("me-owch!")
 				1: say("hisss!")
 				2: say("reaorw!!")
+		"dragon":
+			$Fire.emitting = true
+			$fire.play(0.4)
+			var ri = randi()%3; match ri:
+				0: say("sizzle")
+				1: say("IT BURNS!!!")
+				2: say("AAAAAAAAA")
 
 
 func revive():
@@ -77,29 +84,38 @@ func say(text : String) -> void:
 func _process(_delta):
 	var level = Globals.get_level()
 	var flag = Globals.get_flag()
+	var dragon = Globals.get_dragon()
 
 	if not is_in_group("dead_kitty") and not flag.is_in_group("dead_flag") and not Globals.disable_walk:
 		if Input.is_action_just_pressed("ui_right"):
 			flag.add_history()
+			dragon.add_history()
 			add_history()
 			level.send_in_direction(Vector2.RIGHT, flag)
+			level.send_in_direction(Vector2.LEFT, dragon)
 			level.send_in_direction(Vector2.RIGHT, self)
 			do_turn()
 		elif Input.is_action_just_pressed("ui_up"):
 			flag.add_history()
+			dragon.add_history()
 			add_history()
 			level.send_in_direction(Vector2.UP, flag)
+			level.send_in_direction(Vector2.DOWN, dragon)
 			level.send_in_direction(Vector2.UP, self)
 			do_turn()
 		elif Input.is_action_just_pressed("ui_left"):
 			flag.add_history()
+			dragon.add_history()
 			add_history()
 			level.send_in_direction(Vector2.LEFT, flag)
+			level.send_in_direction(Vector2.RIGHT, dragon)
 			level.send_in_direction(Vector2.LEFT, self)
 			do_turn()
 		elif Input.is_action_just_pressed("ui_down"):
 			flag.add_history()
+			dragon.add_history()
 			add_history()
 			level.send_in_direction(Vector2.DOWN, flag)
+			level.send_in_direction(Vector2.UP, dragon)
 			level.send_in_direction(Vector2.DOWN, self)
 			do_turn()

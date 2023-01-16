@@ -20,6 +20,11 @@ _global_script_classes=[ {
 "path": "res://Content/UI/DialogueBox.gd"
 }, {
 "base": "Sprite",
+"class": "Dragon",
+"language": "GDScript",
+"path": "res://Content/dragon/Dragon.gd"
+}, {
+"base": "Sprite",
 "class": "Flag",
 "language": "GDScript",
 "path": "res://Content/Flag/Flag.gd"
@@ -47,6 +52,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Barrier": "",
 "DialogueBox": "",
+"Dragon": "",
 "Flag": "",
 "Kitty": "",
 "Level": "",

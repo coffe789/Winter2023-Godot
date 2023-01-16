@@ -102,6 +102,10 @@ func resolve_collisions():
 				for obj in tile.obj:
 					if obj.is_in_group("kitty"):
 						obj.die("water")
+			if (tile.has_group("kitty")) and (tile.has_group("dragon")):
+				for obj in tile.obj:
+					if obj.is_in_group("kitty"):
+						obj.die("dragon")
 			if tile.has_group("flag") and tile.has_group("kitty"):
 				Globals.disable_walk = true
 				LevelManager.change_level(LevelManager.current_level_id+1)

@@ -16,6 +16,10 @@ func get_flag() -> Flag:
 	if not flag: return get_tree().get_nodes_in_group("dead_flag").pop_back()
 	else: return flag
 
+func get_dragon() -> Dragon:
+	if get_tree().get_nodes_in_group("dragon"): return get_tree().get_nodes_in_group("dragon")[0]
+	else: return null
+
 func _process(_delta) -> void:
 	if Input.is_action_just_pressed("undo") and not disable_undo:
 		emit_signal("go_back")
