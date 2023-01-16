@@ -12,8 +12,8 @@ var levels = [
 	preload("res://Content/Level/LevelWaterTrapBoogaloo.tscn"),
 	preload("res://Content/Level/LevelNearby.tscn"),
 	preload("res://Content/Level/LevelSwitchIntro.tscn"),
-	preload("res://Content/Level/LevelSwitchyBoogo.tscn"),
 	preload("res://Content/Level/LevelSwitchIntro2.tscn"),
+	preload("res://Content/Level/LevelSwitchyBoogo.tscn"),
 	preload("res://Content/Level/LevelSwitchySwitchy.tscn"),
 ]
 
