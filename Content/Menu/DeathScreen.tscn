@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Content/UI/kittytheme.tres" type="Theme" id=1]
 [ext_resource path="res://Content/Menu/RestartButton.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Content/Menu/GoBackButton.gd" type="Script" id=3]
+[ext_resource path="res://Content/Menu/GoBackButton2.gd" type="Script" id=3]
 
 [node name="DeathScreen" type="Node2D"]
 
