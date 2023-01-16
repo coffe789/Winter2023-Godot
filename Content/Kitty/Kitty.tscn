@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Content/Kitty/Kitty.gd" type="Script" id=1]
 [ext_resource path="res://Content/Kitty/kitty.png" type="Texture" id=2]
 [ext_resource path="res://Content/Particle/Splash.png" type="Texture" id=3]
 [ext_resource path="res://Content/Particle/Puff.png" type="Texture" id=4]
+[ext_resource path="res://Content/Kitty/step.wav" type="AudioStream" id=5]
+[ext_resource path="res://Content/Kitty/splash.wav" type="AudioStream" id=7]
+[ext_resource path="res://Content/Kitty/death.wav" type="AudioStream" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -56,3 +59,13 @@ one_shot = true
 explosiveness = 0.5
 process_material = SubResource( 3 )
 texture = ExtResource( 4 )
+
+[node name="death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="step" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+
+[node name="splash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )

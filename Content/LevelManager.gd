@@ -18,6 +18,7 @@ var current_level_id = 0
 var current_level : Node
 
 func change_level(level_id : int) -> void:
+	$win.play()
 	if current_level:
 		var w = levelwinmenu.instance(); get_parent().add_child(w)
 		yield(w, "cont")
@@ -32,6 +33,7 @@ func restart_level(restartbutton) -> void:
 		current_level.queue_free()
 		var l = levels[current_level_id].instance(); add_child(l)
 		current_level = l
+	$retry.play()
 
 func exit_title_screen(level_id : int) -> void:
 	if current_level:
