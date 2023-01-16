@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Content/Water/waves_seperate3.png" type="Texture" id=1]
 [ext_resource path="res://Content/Water/waves_seperate7.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Content/LevelManager.gd" type="Script" id=7]
 [ext_resource path="res://Content/Water/waves_seperate4.png" type="Texture" id=8]
 [ext_resource path="res://Content/Water/waves_seperate6.png" type="Texture" id=9]
+[ext_resource path="res://Content/Kitty/retry.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Content/Kitty/win.wav" type="AudioStream" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -24,5 +26,13 @@ script = ExtResource( 7 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -192, -192 )
 frames = SubResource( 1 )
+frame = 2
 playing = true
 centered = false
+
+[node name="win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -10.0
+
+[node name="retry" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )

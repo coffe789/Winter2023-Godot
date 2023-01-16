@@ -11,6 +11,8 @@ func _ready():
 	Globals.connect("go_back", self, "undo_history")
 
 func do_turn():
+	$step.pitch_scale = rand_range(0.9,1.1)
+	$step.play()
 	Globals.emit_signal("move_everything")
 	
 	var level = Globals.get_level()
@@ -41,9 +43,11 @@ func die(death_type : String):
 	var last_history = history[history.size()-1]
 	last_history.add_action(funcref(self, "revive"),[])
 	
+	$death.play()
 	match death_type:
 		"water":
 			$Splash.emitting = true
+			$splash.play()
 			var ri = randi()%3; match ri:
 				0: say("splish")
 				1: say("splosh")

@@ -18,6 +18,10 @@ func get_flag() -> Flag:
 func _process(_delta) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		emit_signal("go_back")
+		$undo.pitch_scale = rand_range(0.9,1.1)
+		$undo.play()
 
 func epic_spaghetti_code(gobackbutton) -> void:
 	emit_signal("go_back"); gobackbutton.queue_free()
+	$undo.pitch_scale = rand_range(0.9,1.1)
+	$undo.play()

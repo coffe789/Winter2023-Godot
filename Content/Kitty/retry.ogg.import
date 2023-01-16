@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/retry.ogg-dcc6b2f6fac7abfd01758a19e28f1487.oggstr"
+
+[deps]
+
+source_file="res://Content/Kitty/retry.ogg"
+dest_files=[ "res://.import/retry.ogg-dcc6b2f6fac7abfd01758a19e28f1487.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
