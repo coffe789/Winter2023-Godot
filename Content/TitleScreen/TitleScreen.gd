@@ -6,6 +6,7 @@ func _ready():
 
 
 func _on_Start_pressed():
+	Globals.play_music()
 	LevelManager.exit_title_screen(LevelManager.current_level_id+1)
 
 
