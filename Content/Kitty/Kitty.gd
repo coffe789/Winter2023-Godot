@@ -44,19 +44,28 @@ func die(death_type : String):
 	match death_type:
 		"water":
 			$Splash.emitting = true
-			say("splish")
+			var ri = randi()%3; match ri:
+				0: say("splish")
+				1: say("splosh")
+				2: say("splsh")
 		"spike":
 			$Splash.emitting = true
-			say("me-ouch!")
-	
-#	visible = false
+			var ri = randi()%3; match ri:
+				0: say("me-owch!")
+				1: say("hisss!")
+				2: say("reaorw!!")
 
 
 func revive():
+	
+	var ri = randi()%8; match ri:
+		0: say("...")
+		1: say("Oops!")
+		2: say("Hm..")
+		3: say("Huh..")
+	
 	remove_from_group("dead_kitty")
 	add_to_group("kitty")
-	
-#	visible = true
 
 func say(text : String) -> void:
 	var d = DialogueBox.new(text)
