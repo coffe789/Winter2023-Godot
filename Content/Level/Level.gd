@@ -59,7 +59,8 @@ func get_grid_pos(object) -> Vector2:
 func is_pos_valid(pos : Vector2) -> bool:
 	var in_bounds = pos.x >= 0 and pos.x < grid_size.x and pos.y >= 0 and pos.y < grid_size.y
 	var in_wall = grid[pos.x][pos.y].has_group("barrier")
-	return in_bounds and not in_wall
+	var in_dragon = grid[pos.x][pos.y].has_group("dragon")
+	return in_bounds and not in_wall and not in_dragon
 
 func send_to_tile(tile_pos, object):
 	var pos = get_grid_pos(object)
@@ -113,9 +114,11 @@ func resolve_collisions():
 			if tile.has_group("flag") and tile.has_group("kitty"):
 				Globals.disable_walk = true
 				LevelManager.change_level(LevelManager.current_level_id+1)
-			if tile.has_group("red_switch") and (tile.has_group("kitty") or (tile.has_group("flag"))):
+			if tile.has_group("red_switch") and \
+			(tile.has_group("kitty") or (tile.has_group("flag")) or (tile.has_group("dragon"))):
 				set_is_red_state(true)
-			if tile.has_group("blue_switch") and (tile.has_group("kitty") or (tile.has_group("flag"))):
+			if tile.has_group("blue_switch") and \
+			(tile.has_group("kitty") or (tile.has_group("flag")) or (tile.has_group("dragon"))):
 				set_is_red_state(false)
 
 onready var deathscreen = preload("res://Content/Menu/DeathScreen.tscn")
