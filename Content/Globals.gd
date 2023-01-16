@@ -26,3 +26,5 @@ func epic_spaghetti_code(gobackbutton) -> void:
 	emit_signal("go_back"); if gobackbutton: gobackbutton.queue_free()
 	$undo.pitch_scale = rand_range(0.9,1.1)
 	$undo.play()
+
+func play_music(): $music.play()
