@@ -10,7 +10,7 @@ func _on_Start_pressed():
 
 
 func _on_Credits_pressed():
-	$Camera2D.position.x = 450.0
+	$Camera2D.position.x = 1024
 
 
 func _on_Quit_pressed():

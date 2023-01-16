@@ -1,13 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Content/TitleScreen/icon_anim.png" type="Texture" id=1]
 [ext_resource path="res://Content/TitleScreen/TitleScreen.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://Content/UI/m5x7.ttf" type="DynamicFontData" id=4]
-
-[sub_resource type="DynamicFont" id=3]
-size = 32
-font_data = ExtResource( 4 )
+[ext_resource path="res://Content/TitleScreen/KityTitle.png" type="Texture" id=5]
+[ext_resource path="res://Content/TitleScreen/Kity.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -64,21 +62,39 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 4 )
+
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Logo" type="Sprite" parent="."]
-position = Vector2( -10, 0 )
+visible = false
+position = Vector2( -16, -8 )
+scale = Vector2( 2.2, 2.2 )
 z_index = 100
 texture = ExtResource( 1 )
 centered = false
 hframes = 6
 
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 512, 288 )
+texture = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 304, 128 )
+texture = ExtResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/play_logo = SubResource( 2 )
+
 [node name="Start" type="TextureButton" parent="."]
-margin_left = 304.0
-margin_top = 112.0
-margin_right = 368.0
-margin_bottom = 176.0
+margin_left = 536.0
+margin_top = 280.0
+margin_right = 600.0
+margin_bottom = 344.0
 texture_normal = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Start"]
@@ -91,21 +107,11 @@ text = "Play
 "
 scroll_active = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 1 )
-anims/play_logo = SubResource( 2 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
-current = true
-zoom = Vector2( 0.45, 0.45 )
-smoothing_enabled = true
-
 [node name="Credits" type="TextureButton" parent="."]
-margin_left = 264.0
-margin_top = 176.0
-margin_right = 304.0
-margin_bottom = 216.0
+margin_left = 544.0
+margin_top = 360.0
+margin_right = 608.0
+margin_bottom = 424.0
 texture_normal = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Credits"]
@@ -120,10 +126,10 @@ text = "Credits
 scroll_active = false
 
 [node name="Quit" type="TextureButton" parent="."]
-margin_left = 232.0
-margin_top = 240.0
-margin_right = 272.0
-margin_bottom = 280.0
+margin_left = 544.0
+margin_top = 448.0
+margin_right = 608.0
+margin_bottom = 512.0
 texture_normal = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Quit"]
@@ -136,10 +142,10 @@ text = "Quit"
 scroll_active = false
 
 [node name="CreditsReturn" type="TextureButton" parent="."]
-margin_left = 864.0
-margin_top = 192.0
-margin_right = 928.0
-margin_bottom = 256.0
+margin_left = 1800.0
+margin_top = 480.0
+margin_right = 1864.0
+margin_bottom = 544.0
 texture_normal = ExtResource( 3 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CreditsReturn"]
@@ -152,10 +158,10 @@ text = "Return"
 scroll_active = false
 
 [node name="CreditsText" type="RichTextLabel" parent="."]
-margin_left = 568.0
-margin_top = 56.0
-margin_right = 824.0
-margin_bottom = 248.0
+margin_left = 1352.0
+margin_top = 176.0
+margin_right = 1608.0
+margin_bottom = 368.0
 custom_fonts/normal_font = SubResource( 3 )
 text = "By Verti & COFFE
 
@@ -163,6 +169,11 @@ lalala
 
 credits credits credits"
 scroll_active = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+smoothing_enabled = true
 
 [connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_Credits_pressed"]

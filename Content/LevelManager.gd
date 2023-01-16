@@ -8,8 +8,8 @@ var levels = [
 	preload("res://Content/Level/Level1.tscn"),
 	preload("res://Content/Level/LevelWaterIntro.tscn"),
 	preload("res://Content/Level/LevelWaterIntro2.tscn"),
+	preload("res://Content/Level/LevelWaterTrapBoogaloo.tscn"),
 	preload("res://Content/Level/LevelNearby.tscn"),
-	preload("res://Content/Level/LevelWaterTrap.tscn"),
 ]
 
 var levelwinmenu = preload("res://Content/Menu/LevelWin.tscn")
@@ -42,8 +42,8 @@ func exit_title_screen(level_id : int) -> void:
 
 func _ready():
 	change_level(1)
-	for i in 48:
-		for j in 48:
-			var a = $AnimatedSprite.duplicate()
-			add_child(a); a.position += 8 * Vector2(i, j)
-			a.speed_scale = 2.0 * rand_range(0.9,1.1)
+#	for i in 48:
+#		for j in 48:
+#			var a = $AnimatedSprite.duplicate()
+#			add_child(a); a.position += 8 * Vector2(i, j)
+#			a.speed_scale = 2.0 * rand_range(0.9,1.1)
