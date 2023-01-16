@@ -1,1 +1,1 @@
-extends Node2D; signal restart
+extends Node2D

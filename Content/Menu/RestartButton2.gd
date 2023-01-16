@@ -8,3 +8,8 @@ func _on_Button_button_up():
 func _ready():
 	var lm = get_tree().get_root().get_node("WorldRoot/ViewportContainer/Viewport/LevelManager")
 	connect("restart", lm, "restart_level", [false])
+
+signal cancelled
+func _input(event):
+	if event.is_action("ui_cancel"):
+		emit_signal("cancelled")
