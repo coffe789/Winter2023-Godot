@@ -14,4 +14,3 @@ signal cancelled
 func _input(event):
 	if event.is_action("ui_cancel"):
 		emit_signal("cancelled")
-

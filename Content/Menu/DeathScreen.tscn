@@ -31,6 +31,6 @@ margin_left = -78.0
 margin_right = 78.0
 margin_bottom = 17.0
 theme = ExtResource( 1 )
-text = "Or BACKSPACE to UNDO"
+text = "Or SPACE to UNDO"
 
 [connection signal="button_up" from="CanvasLayer/GoBackButton/Button" to="CanvasLayer/GoBackButton" method="_on_Button_button_up"]
