@@ -9,7 +9,7 @@ func _ready():
 		var f = get_node("../Flag")
 		var d_offset = Vector2(0, -4)
 		
-		var d := DialogueBox.new("I can press 'ESC' to undo mistakes..", d_offset)
+		var d := DialogueBox.new("I can press 'SPACE' to undo mistakes..", d_offset)
 		k.add_child(d)
 		yield(d, "tree_exited")
 		Globals.disable_walk = false
