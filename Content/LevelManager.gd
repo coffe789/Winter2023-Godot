@@ -31,7 +31,7 @@ func change_level(level_id : int) -> void:
 
 func restart_level(restartbutton) -> void:
 	if current_level:
-		restartbutton.queue_free()
+		if restartbutton: restartbutton.queue_free()
 		current_level.queue_free()
 		var l = levels[current_level_id].instance(); add_child(l)
 		current_level = l

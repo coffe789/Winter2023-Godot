@@ -32,3 +32,5 @@ func _ready():
 		yield(d, "tree_exited")
 
 		Globals.disable_walk = false
+		get_tree().get_root().get_node("WorldRoot/GoBackButton").visible = true
+		get_tree().get_root().get_node("WorldRoot/RestartButton").visible = true
