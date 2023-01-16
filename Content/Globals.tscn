@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Content/Globals.gd" type="Script" id=1]
 [ext_resource path="res://Content/Kitty/undo.wav" type="AudioStream" id=2]
-[ext_resource path="res://Content/A Kity's World.wav" type="AudioStream" id=3]
+[ext_resource path="res://Content/A Kity's World.ogg" type="AudioStream" id=3]
 
 [node name="Globals" type="Node"]
 script = ExtResource( 1 )
