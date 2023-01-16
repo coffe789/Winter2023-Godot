@@ -123,13 +123,13 @@ theme = ExtResource( 3 )
 text = " By COFFE & Verti
 
  special thanks to Impact
- (https://itch.io/profile/impactos)
+ (itch.io/profile/impactos)
  and Chaotick
- ()
+ (@ChaotickV on twitter)
  for their artwork
 
  Font is m5x7 by Daniel Linssen
- (https://managore.itch.io/m5x7)"
+ (managore.itch.io/m5x7)"
 scroll_active = false
 
 [node name="CreditsReturn" type="Button" parent="."]

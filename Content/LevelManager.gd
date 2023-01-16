@@ -20,8 +20,8 @@ var current_level_id = 0
 var current_level : Node
 
 func change_level(level_id : int) -> void:
-	$win.play()
 	if current_level:
+		$win.play()
 		var w = levelwinmenu.instance(); get_parent().add_child(w)
 		yield(w, "cont")
 		w.queue_free(); current_level.queue_free()

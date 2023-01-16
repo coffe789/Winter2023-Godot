@@ -29,3 +29,4 @@ text = "NEXT LEVEL"
 position = Vector2( 161, 108.333 )
 
 [connection signal="button_up" from="CanvasLayer/Button" to="." method="_on_Button_button_up"]
+[connection signal="cancelled" from="CanvasLayer/RestartButton" to="." method="queue_free"]
