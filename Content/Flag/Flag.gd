@@ -38,6 +38,7 @@ func die(death_type : String):
 	
 	match death_type:
 		"spike":
+			$Puff.emitting = true
 			var ri = randi()%3; match ri:
 				0: say("Owww!")
 				1: say("I ripped my fabric!")
