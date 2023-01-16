@@ -114,9 +114,9 @@ text = "Quit"
 [node name="CreditsText" type="RichTextLabel" parent="."]
 margin_left = 1132.0
 margin_top = 13.0
-margin_right = 1397.0
-margin_bottom = 159.0
-rect_scale = Vector2( 4, 4 )
+margin_right = 1568.0
+margin_bottom = 308.0
+rect_scale = Vector2( 2, 2 )
 mouse_filter = 1
 theme = ExtResource( 3 )
 text = " By COFFE & Verti
@@ -126,6 +126,12 @@ text = " By COFFE & Verti
  and Chaotick
  (@ChaotickV on twitter)
  for their artwork
+
+ Thanks to our playtesters too:
+ neo
+ Hydro0
+ Real Hojo
+ Worldwaker2
 
  Font is m5x7 by Daniel Linssen
  (managore.itch.io/m5x7)"
