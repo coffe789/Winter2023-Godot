@@ -18,6 +18,8 @@ func _init(text : String, offset = Vector2(0,0), _scale := 0.3) -> void:
 
 func _ready():
 	t.start()
+	for x in get_tree().get_nodes_in_group("dialoguebox"): # <- this doesnt work for some reason
+		if not x == self: x.queue_free()
 
 func append_new_letter() -> void:
 	var label = $A/CentreContainer/Label

@@ -49,7 +49,7 @@ func die(death_type : String):
 				1: say("splosh")
 				2: say("splsh")
 		"spike":
-			$Splash.emitting = true
+			$Puff.emitting = true
 			var ri = randi()%3; match ri:
 				0: say("me-owch!")
 				1: say("hisss!")
@@ -57,7 +57,6 @@ func die(death_type : String):
 
 
 func revive():
-	
 	var ri = randi()%8; match ri:
 		0: say("...")
 		1: say("Oops!")
