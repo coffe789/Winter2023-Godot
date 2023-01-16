@@ -5,7 +5,7 @@ var history = []
 
 func _ready():
 	var level = Globals.get_level()
-	Globals.disabled_input = false
+	Globals.disable_walk = false
 	level.init_object(self)
 	add_to_group("kitty")
 	Globals.connect("go_back", self, "undo_history")
@@ -78,7 +78,7 @@ func _process(_delta):
 	var level = Globals.get_level()
 	var flag = Globals.get_flag()
 
-	if not is_in_group("dead_kitty") and not flag.is_in_group("dead_flag") and not Globals.disabled_input:
+	if not is_in_group("dead_kitty") and not flag.is_in_group("dead_flag") and not Globals.disable_walk:
 		if Input.is_action_just_pressed("ui_right"):
 			flag.add_history()
 			add_history()

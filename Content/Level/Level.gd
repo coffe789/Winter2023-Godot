@@ -103,7 +103,7 @@ func resolve_collisions():
 					if obj.is_in_group("kitty"):
 						obj.die("water")
 			if tile.has_group("flag") and tile.has_group("kitty"):
-				Globals.disabled_input = true
+				Globals.disable_walk = true
 				LevelManager.change_level(LevelManager.current_level_id+1)
 			if tile.has_group("red_switch") and (tile.has_group("kitty") or (tile.has_group("flag"))):
 				set_is_red_state(true)

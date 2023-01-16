@@ -4,7 +4,7 @@ extends Node
 func _ready():
 	if Globals.dialogue_progress == 0:
 		Globals.dialogue_progress = 1
-		Globals.disabled_input = true
+		Globals.disable_walk = true
 		
 		var k = get_node("../Kitty")
 		var f = get_node("../Flag")
@@ -31,4 +31,4 @@ func _ready():
 		f.add_child(d)
 		yield(d, "tree_exited")
 
-		Globals.disabled_input = false
+		Globals.disable_walk = false
