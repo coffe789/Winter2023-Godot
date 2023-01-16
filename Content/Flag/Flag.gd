@@ -39,10 +39,19 @@ func die(death_type : String):
 	match death_type:
 		"spike":
 			$Puff.emitting = true
+			$rip.play(5.6)
 			var ri = randi()%3; match ri:
 				0: say("Owww!")
 				1: say("I ripped my fabric!")
 				2: say("Gah!")
+		"dragon":
+			$Fire.emitting = true
+			$rip.play(5.6)
+			$fire.play(0.4)
+			var ri = randi()%3; match ri:
+				0: say("I GOT YOU! HAHA")
+				1: say("HOT HOT HOT OW")
+				2: say("KITY WHY")
 
 func revive():
 	remove_from_group("dead_flag")

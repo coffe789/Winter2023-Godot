@@ -62,7 +62,7 @@ func die(death_type : String):
 			$Fire.emitting = true
 			$fire.play(0.4)
 			var ri = randi()%3; match ri:
-				0: say("sizzle")
+				0: say("sizzle sizzle")
 				1: say("IT BURNS!!!")
 				2: say("AAAAAAAAA")
 
