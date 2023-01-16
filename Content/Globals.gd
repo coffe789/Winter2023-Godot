@@ -18,3 +18,6 @@ func get_flag() -> Flag:
 func _process(_delta) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		emit_signal("go_back")
+
+func epic_spaghetti_code(gobackbutton) -> void:
+	emit_signal("go_back"); gobackbutton.queue_free()

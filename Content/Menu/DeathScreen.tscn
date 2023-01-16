@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Content/UI/kittytheme.tres" type="Theme" id=1]
 [ext_resource path="res://Content/Menu/RestartButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Content/Menu/GoBackButton.gd" type="Script" id=3]
 
 [node name="DeathScreen" type="Node2D"]
 
@@ -18,10 +19,15 @@ color = Color( 0, 0, 0, 0.2 )
 [node name="RestartButton" parent="CanvasLayer" instance=ExtResource( 2 )]
 position = Vector2( 161, 85 )
 
-[node name="Label" type="Label" parent="CanvasLayer/RestartButton"]
-margin_left = -88.3333
-margin_top = 18.0
-margin_right = 81.6667
-margin_bottom = 33.0
+[node name="GoBackButton" type="Node2D" parent="CanvasLayer"]
+position = Vector2( 161, 102.667 )
+script = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="CanvasLayer/GoBackButton"]
+margin_left = -78.0
+margin_right = 78.0
+margin_bottom = 17.0
 theme = ExtResource( 1 )
-text = "Or Press Escape to UNDO"
+text = "Or BACKSPACE to UNDO"
+
+[connection signal="button_up" from="CanvasLayer/GoBackButton/Button" to="CanvasLayer/GoBackButton" method="_on_Button_button_up"]

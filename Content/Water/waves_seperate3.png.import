@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/waves2.png-fbb77591fa838100e9834e3bc9959e13.stex"
+path="res://.import/waves_seperate3.png-4c855da31a6b699c82496ea881e84043.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Water/waves2.png"
-dest_files=[ "res://.import/waves2.png-fbb77591fa838100e9834e3bc9959e13.stex" ]
+source_file="res://Content/Water/waves_seperate3.png"
+dest_files=[ "res://.import/waves_seperate3.png-4c855da31a6b699c82496ea881e84043.stex" ]
 
 [params]
 

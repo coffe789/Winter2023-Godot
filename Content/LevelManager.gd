@@ -42,3 +42,8 @@ func exit_title_screen(level_id : int) -> void:
 
 func _ready():
 	change_level(1)
+	for i in 48:
+		for j in 48:
+			var a = $AnimatedSprite.duplicate()
+			add_child(a); a.position += 8 * Vector2(i, j)
+			a.speed_scale = 2.0 * rand_range(0.9,1.1)

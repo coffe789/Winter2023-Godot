@@ -37,13 +37,16 @@ func die(death_type : String):
 	last_history.add_action(funcref(self, "revive"),[])
 	
 	match death_type:
-		"spike": pass
-	
-	visible = false
-
+		"spike":
+			var ri = randi()%3; match ri:
+				0: say("Owww!")
+				1: say("I ripped my fabric!")
+				2: say("Gah!")
 
 func revive():
 	remove_from_group("dead_flag")
 	add_to_group("flag")
 
-	visible = true
+func say(text : String) -> void:
+	var d = DialogueBox.new(text)
+	add_child(d)
