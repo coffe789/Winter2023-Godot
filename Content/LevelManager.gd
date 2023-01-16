@@ -11,6 +11,7 @@ var levels = [
 	preload("res://Content/Level/LevelVeryNearby.tscn"),
 	preload("res://Content/Level/LevelWaterTrapBoogaloo.tscn"),
 	preload("res://Content/Level/LevelNearby.tscn"),
+	preload("res://Content/Level/LevelSwitchIntro.tscn"),
 ]
 
 var levelwinmenu = preload("res://Content/Menu/LevelWin.tscn")

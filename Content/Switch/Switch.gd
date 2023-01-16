@@ -15,7 +15,7 @@ func change_state(add_history = true):
 	else: frame = 0
 	if add_history:
 		history[history.size() - 1].add_action(funcref(self,"change_state"), [false])
-	Globals.get_level().is_state_red = is_red && pressed
+	Globals.get_level().is_state_red = is_red && pressed or !is_red and !pressed
 
 func _ready():
 	if !Engine.editor_hint:
