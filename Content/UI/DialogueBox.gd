@@ -9,7 +9,7 @@ var text_complete
 func _init(text : String, offset = Vector2(0,0), _scale := 0.3) -> void:
 	var d = dcontainer.instance(); d.rect_position = Vector2(-20,-17); add_child(d)
 	t = Timer.new(); t.connect("timeout", self, "append_new_letter")
-	t.wait_time = 0.065; add_child(t); t.one_shot = true
+	t.wait_time = 0.05; add_child(t); t.one_shot = true
 	dialogue = text
 	
 	scale = Vector2(_scale,_scale)

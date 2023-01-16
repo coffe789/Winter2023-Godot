@@ -1,16 +1,14 @@
 extends Node2D
 
+signal goback
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func _on_Button_button_up():
+	emit_signal("goback")
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	var lm = get_tree().get_root().get_node("WorldRoot/ViewportContainer/Viewport/LevelManager")
+	connect("goback", Globals, "epic_spaghetti_code", [self.get_parent().get_parent()])
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_parent().get_parent().queue_free()
