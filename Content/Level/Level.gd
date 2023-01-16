@@ -112,5 +112,6 @@ func resolve_collisions():
 
 onready var deathscreen = preload("res://Content/Menu/DeathScreen.tscn")
 func death_screen():
+	yield(get_tree().create_timer(1.0), "timeout")
 	var d = deathscreen.instance(); get_tree().get_root().add_child(d)
 

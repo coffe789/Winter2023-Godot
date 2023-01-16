@@ -42,18 +42,25 @@ func die(death_type : String):
 	last_history.add_action(funcref(self, "revive"),[])
 	
 	match death_type:
-		"water": $Splash.emitting = true
-		"spike": $Splash.emitting = true
+		"water":
+			$Splash.emitting = true
+			say("splish")
+		"spike":
+			$Splash.emitting = true
+			say("me-ouch!")
 	
-	visible = false
+#	visible = false
 
 
 func revive():
 	remove_from_group("dead_kitty")
 	add_to_group("kitty")
 	
-	visible = true
+#	visible = true
 
+func say(text : String) -> void:
+	var d = DialogueBox.new(text)
+	add_child(d)
 
 func _process(_delta):
 	var level = Globals.get_level()
