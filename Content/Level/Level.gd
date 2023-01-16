@@ -112,6 +112,12 @@ func resolve_collisions():
 
 onready var deathscreen = preload("res://Content/Menu/DeathScreen.tscn")
 func death_screen():
+	var d = deathscreen.instance()
+	get_tree().get_root().add_child(d)
+	
 	yield(get_tree().create_timer(1.0), "timeout")
-	var d = deathscreen.instance(); get_tree().get_root().add_child(d)
+	if is_instance_valid(d):
+		d.get_node("CanvasLayer").visible = true
+		
+	
 
