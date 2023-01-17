@@ -9,7 +9,7 @@ func _ready():
 	var lm = get_tree().get_root().get_node("WorldRoot/ViewportContainer/Viewport/LevelManager")
 	connect("restart", lm, "restart_level", [self.get_parent().get_parent()])
 
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		get_parent().get_parent().queue_free()
-		Globals.disable_walk = false
+#func _input(event):
+#	if event.is_action_pressed("ui_cancel"):
+#		get_parent().get_parent().queue_free()
+#		Globals.disable_walk = false
